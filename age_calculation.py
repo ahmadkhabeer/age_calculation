@@ -38,13 +38,15 @@ try:
             weeks = days//7
             days = days%7
 
-        print('You have {}{}{}{}'.format(str(years) + " year(s)" if years > 0 else "\b", \
+        user_age = 'You have {}{}{}{}'.format(str(years) + " year(s)" if years > 0 else "\b", \
             ", " + str(months) + " month(s)" if months > 0 else "\b\b", \
             ", " + str(weeks) + " week(s)" if weeks > 0 else "\b\b", \
-            ", " + str(days) + " day(s)" if days > 0 else "\b\b"))
+            ", " + str(days) + " day(s)" if days > 0 else "\b\b")
+
+        return user_age
 
     birthdate = input('Enter your bithdate as "d-m-Y: ')
 
-    calc_my_age(birthdate)
+    print(calc_my_age(birthdate))
 except ValueError:
     print('You should enter your birthdate in dd-mm-yyyy format.')
