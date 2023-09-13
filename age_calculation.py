@@ -21,10 +21,12 @@ try:
         weeks = 0
         days = today.day - user_birthdate.day
 
+        # Fix months value
         if months < 0:
             years -= 1
             months += 12
 
+        # Fix days value
         if days < 0:
             months -=1
             days += year_months[user_birthdate.month]
@@ -34,6 +36,7 @@ try:
             if (isleap(user_birthdate.year) and user_birthdate.month <= 2 and user_birthdate <= 29):
                 days += 1
 
+        # Update weeks value
         if days > 6:
             weeks = days//7
             days = days%7
@@ -45,8 +48,10 @@ try:
 
         return user_age
 
+    # Take user's birthdate
     birthdate = input('Enter your bithdate as "d-m-Y: ')
 
     print(calc_my_age(birthdate))
+
 except ValueError:
     print('You should enter your birthdate in dd-mm-yyyy format.')
